@@ -1,12 +1,38 @@
 #include "../includes/includes.h"
 
+int             stack_is_sorted(t_stack a, t_stack b)
+{
+    int i;
+
+    if (b->top_index != -1)
+        return (0);
+    if (stack_is_empty(a))
+        return (0);
+    i = 0;
+    while (i < a->top_index)
+    {
+        if (a->data[i] > a->data[i + 1])
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
+void            checker(t_stack a, t_stack b)
+{
+    if (stack_is_sorted(a, b))
+        printf("OK!\n");
+    else
+        printf("KO!\n");
+}
+
 int     main()
 {
     t_stack a = stack_construct(10);
-    //t_stack b = stack_construct(10);
+    t_stack b = stack_construct(10);
 
     for (int i = 0; i < 6; i++)
-        stack_push(a, 2 * i + 6);
+        stack_push(a, i + 2);
     // for (int i = 0; i < 6; i++)
     //    stack_push(b, i + 2);
     
@@ -14,14 +40,16 @@ int     main()
     // stack_debug2(a, b);
     stack_debug1(a);
 
-    op_reverse_rotate(a);
+    checker(a, b);
 
-    stack_debug1(a);
+    // op_reverse_rotate(a);
+
+    // stack_debug1(a);
 
     // stack_debug2(a, b);
 
     stack_destroy(a);
     
-    // stack_destroy(b);
+    stack_destroy(b);
     return (EXIT_SUCCESS);
 }
