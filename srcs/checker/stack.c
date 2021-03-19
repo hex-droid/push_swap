@@ -13,20 +13,20 @@ t_stack         stack_construct(int size)
     return (s);
 }
 
-int             stack_is_empty(t_stack s)
-{
-    return (s->top_index == -1);
-}
-
-int             stack_is_full(t_stack s)
-{
-    return (s->top_index == s->size - 1);
-}
-
 void            stack_destroy(t_stack s)
 {
     free(s->data);
     free(s);
+}
+
+int             stack_is_full(t_stack s)
+{
+    return (s->top_index == s->size);
+}
+
+int             stack_is_empty(t_stack s)
+{
+    return (s->top_index == -1);
 }
 
 int             stack_pop(t_stack s)
@@ -67,10 +67,20 @@ int            stack_exists(t_stack s, int value)
 
 void            stack_debug(t_stack a, t_stack b)
 {
-    printf("stack a:\n");
     for (int i = a->top_index; i >= 0; i--)
-        printf("%d\n", a->data[i]);
-    printf("stack b:\n");
-    for (int i = b->top_index; i >= 0; i--)
-        printf("%d\n", b->data[i]);
+		printf("%d\n", a->data[i]);
+	
+	printf("|A|\n\n");
+    
+	for (int i = b->top_index; i >= 0; i--)
+		printf("%d\n", b->data[i]);
+	
+	printf("|B|\n\n");
+}
+
+void            stack_debug1(t_stack s)
+{
+	for (int i = s->top_index; i >= 0; i--)
+		printf("%d\n", s->data[i]);
+	printf("|STACK|\n");
 }
