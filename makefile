@@ -7,6 +7,7 @@ CNAME = checker
 CSRC = 	main.c\
 		operations.c\
 		stack.c\
+		error.c\
 
 CSDIR = ./srcs/checker/
 

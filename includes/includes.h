@@ -5,7 +5,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-# define STACK_ALLOC 8
 typedef struct _stack s_stack;
 typedef struct _stack *t_stack;
 
@@ -18,7 +17,6 @@ struct  _stack
 };
 
 t_stack         stack_construct(int size);
-t_stack         ext_stack_construct();
 int             stack_pop(t_stack s);
 int             stack_push(t_stack s, int i);
 void            stack_destroy(t_stack s);
@@ -26,8 +24,6 @@ int             stack_exists(t_stack s, int value);
 int             stack_size(t_stack s);
 int             stack_is_empty(t_stack s);
 int             stack_is_full(t_stack s);
-void            stack_resize(t_stack s, int newalloc);
-void            stack_clone(t_stack clone, t_stack og);
 
 void            op_swap(t_stack s);
 void            op_push(t_stack to, t_stack from);
@@ -55,5 +51,8 @@ void            stack_debug1(t_stack s);
 int         get_next_line(char **line);
 char        *ft_strjoin(char *line, char buffer);
 int         ft_strlen(const char *s);
+void        ft_putchar_fd(char c, int fd);
+void        ft_putstr_fd(const char *str, int fd);
+void        error_handle(const char *message);
 
 #endif
