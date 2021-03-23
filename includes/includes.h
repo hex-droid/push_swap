@@ -42,17 +42,21 @@ void            op_rra(t_stack a, t_stack b);
 void            op_rrb(t_stack a, t_stack b);
 void            op_rrr(t_stack a, t_stack b);
 
-int             stack_is_sorted(t_stack a, t_stack b);
-void            checker(t_stack a, t_stack b);
+int             stack_is_sorted(t_stack s);
+void            checker(t_stack a);
 
+void            stack_debug(t_stack s);
 void            stack_debug2(t_stack a, t_stack b);
-void            stack_debug1(t_stack s);
 
-int         get_next_line(char **line);
-char        *ft_strjoin(char *line, char buffer);
+
+int             get_next_line(char **line);
+char         *ft_strjoin(char *line, char buffer);
 int         ft_strlen(const char *s);
 void        ft_putchar_fd(char c, int fd);
 void        ft_putstr_fd(const char *str, int fd);
 void        error_handle(const char *message);
+int         ft_is_num(char c);
+int         is_valid_int(char *s);
+
 
 #endif

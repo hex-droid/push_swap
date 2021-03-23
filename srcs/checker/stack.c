@@ -1,19 +1,5 @@
 #include "../../includes/includes.h"
 
-void            stack_clone(t_stack clone, t_stack og)
-{
-	int i;
-
-	i = 0;
-	clone->size = og->size;
-	clone->top_index = og->top_index;
-	while (i <= og->top_index)
-	{
-		clone->data[i] = og->data[i];
-		i++;
-	}
-}
-
 t_stack         stack_construct(int size)
 {
     t_stack s;
@@ -47,8 +33,7 @@ int             stack_pop(t_stack s)
 {
     if (stack_is_empty(s))
         error_handle("Stack is empty!\n");
-    s->top_index--;
-    return (1);
+    return(s->data[s->top_index--]);
 }
 
 int             stack_push(t_stack s, int i)
@@ -79,7 +64,7 @@ int            stack_exists(t_stack s, int value)
     return (0);
 }
 
-void            stack_debug(t_stack a, t_stack b)
+void            stack_debug2(t_stack a, t_stack b)
 {
     for (int i = a->top_index; i >= 0; i--)
 		printf("%d\n", a->data[i]);

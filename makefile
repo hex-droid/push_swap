@@ -8,6 +8,7 @@ CSRC = 	main.c\
 		operations.c\
 		stack.c\
 		error.c\
+		utils.c\
 
 CSDIR = ./srcs/checker/
 
