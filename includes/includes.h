@@ -45,7 +45,7 @@ void            op_rrr(t_stack a, t_stack b);
 int             stack_is_sorted(t_stack s);
 void            checker(t_stack a);
 
-void            stack_debug(t_stack s);
+void            stack_debug1(t_stack s);
 void            stack_debug2(t_stack a, t_stack b);
 
 
@@ -57,6 +57,8 @@ void        ft_putstr_fd(const char *str, int fd);
 void        error_handle(const char *message);
 int         ft_is_num(char c);
 int         is_valid_int(char *s);
+void        parse_line(char *line);
+
 
 
 #endif

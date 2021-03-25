@@ -79,7 +79,6 @@ void            stack_debug2(t_stack a, t_stack b)
 
 void            stack_debug1(t_stack s)
 {
-	printf("stack->size : %d\n", s->size);
 	for (int i = s->top_index; i >= 0; i--)
 		printf("%d\n", s->data[i]);
 	printf("|STACK|\n");
