@@ -3,11 +3,13 @@
 void            op_sa(t_stack a, t_stack b)
 {
     op_swap(a);
+    (void )b;
 }
 
 void            op_sb(t_stack a, t_stack b)
 {
     op_swap(b);
+    (void )a;
 }
 
 void            op_ss(t_stack a, t_stack b)
@@ -29,11 +31,13 @@ void            op_pb(t_stack a, t_stack b)
 void            op_ra(t_stack a, t_stack b)
 {
     op_rotate(a);
+    (void )b;
 }
 
 void            op_rb(t_stack a, t_stack b)
 {
     op_rotate(b);
+    (void )a;
 }
 
 void            op_rr(t_stack a, t_stack b)
@@ -45,10 +49,12 @@ void            op_rr(t_stack a, t_stack b)
 void            op_rra(t_stack a, t_stack b)
 {
     op_reverse_rotate(a);
+    (void )b;
 }
 void            op_rrb(t_stack a, t_stack b)
 {
     op_reverse_rotate(b);
+    (void )a;
 }
 
 void            op_rrr(t_stack a, t_stack b)

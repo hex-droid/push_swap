@@ -1,12 +1,31 @@
 #include "../../includes/includes.h"
 
-void            parse_line(char *line)
+void            check_line(char *line, t_stack a, t_stack b)
 {
-    int len;
-
-    len = ft_strlen(line);
-    if (len > 3)
-        error_handle("Invalid flag!");
+    if (cmp(line, "sa"))
+        op_sa(a, b);
+    else if (cmp(line, "sb"))
+        op_sb(a, b);
+    else if (cmp(line, "ss"))
+        op_ss(a, b);
+    else if (cmp(line, "pa"))
+        op_pa(a, b);
+    else if (cmp(line, "pb"))
+        op_pb(a, b);
+    else if (cmp(line, "ra"))
+        op_ra(a, b);
+    else if (cmp(line, "rb"))
+        op_rb(a, b);
+    else if (cmp(line, "rr"))
+        op_rr(a, b);
+    else if (cmp(line, "rra"))
+        op_rra(a, b);
+    else if (cmp(line, "rrb"))
+        op_rrb(a, b);
+    else if (cmp(line, "rrr"))
+        op_rrr(a, b);
+    else 
+        error_handle("Wrong input");
 }
 
 int             is_valid_int(char *s)
@@ -67,16 +86,17 @@ int     main(int ac, char **av)
             error_handle("Duplicated number!");
         i--;
     }
+    printf("|||||||||BEFORE|||||||||\n");
+    stack_debug2(a, b);
     while (get_next_line(&line) > 0)
     {
-        parse_line(line);
-        printf("%s\n", line);
+        check_line(line, a, b);
         free(line);
         line = NULL;
     }
-    
-    stack_debug1(a);
-
+    printf("||||||||||AFTER||||||||||\n");
+    stack_debug2(a, b);
+    checker(a);
     stack_destroy(a);
     stack_destroy(b);
     return (EXIT_SUCCESS);

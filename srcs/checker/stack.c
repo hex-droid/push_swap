@@ -66,15 +66,15 @@ int            stack_exists(t_stack s, int value)
 
 void            stack_debug2(t_stack a, t_stack b)
 {
-    for (int i = a->top_index; i >= 0; i--)
-		printf("%d\n", a->data[i]);
-	
-	printf("|A|\n\n");
-    
-	for (int i = b->top_index; i >= 0; i--)
-		printf("%d\n", b->data[i]);
-	
-	printf("|B|\n\n");
+    int  top_index;
+
+    top_index = (a->top_index >= b->top_index) ? a->top_index : b->top_index;
+    printf("|||||||||||||||||||||||||\n");
+    for (int i = top_index; i >= 0; i--)
+		printf("||   %d    ||     %d     ||\n", a->data[i], b->data[i]);
+    printf("|||||||||||||||||||||||||\n");
+	printf("|||| A ||||||||| B ||||||\n");
+    printf("|||||||||||||||||||||||||\n");
 }
 
 void            stack_debug1(t_stack s)

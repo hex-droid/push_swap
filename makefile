@@ -8,6 +8,7 @@ PNAME = push_swap
 
 SRC = 	checker/operations.c\
 		checker/stack.c\
+		checker/generic_op.c\
 		utils/error.c\
 		utils/utils.c\
 		get_next_line/get_next_line.c\

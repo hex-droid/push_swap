@@ -57,7 +57,8 @@ void        ft_putstr_fd(const char *str, int fd);
 void        error_handle(const char *message);
 int         ft_is_num(char c);
 int         is_valid_int(char *s);
-void        parse_line(char *line);
+int          cmp(char *s1, char *s2);
+void        check_line(char *line, t_stack a, t_stack b);
 
 
 
