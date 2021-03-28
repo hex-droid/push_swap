@@ -25,3 +25,17 @@ int     cmp(char *s1, char *s2)
     }
     return (1);
 }
+
+int             is_valid_int(char *s)
+{
+    int i;
+
+    i = 0;
+    while (s[i] != '\0')
+    {
+        if (!(ft_is_num(s[i])))
+			error_handle("Invalid value!");
+        i++;
+    }
+    return (1);
+}

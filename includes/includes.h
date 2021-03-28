@@ -1,5 +1,5 @@
 #ifndef INCLUDES_H
-# define INCLUDE_H
+# define INCLUDES_H
 
 # include <unistd.h>
 # include <stdio.h>
@@ -10,10 +10,10 @@ typedef struct _stack *t_stack;
 
 struct  _stack
 {
-    int         *data;
-    int         size;
-    int         alloc;
-    int         top_index;
+	int         *data;
+	int         size;
+	int         alloc;
+	int         top_index;
 };
 
 t_stack         stack_construct(int size);
@@ -49,16 +49,16 @@ void            stack_debug1(t_stack s);
 void            stack_debug2(t_stack a, t_stack b);
 
 
-int             get_next_line(char **line);
-char         *ft_strjoin(char *line, char buffer);
-int         ft_strlen(const char *s);
-void        ft_putchar_fd(char c, int fd);
-void        ft_putstr_fd(const char *str, int fd);
-void        error_handle(const char *message);
-int         ft_is_num(char c);
-int         is_valid_int(char *s);
-int          cmp(char *s1, char *s2);
-void        check_line(char *line, t_stack a, t_stack b);
+int				get_next_line(char **line);
+char         	*ft_strjoin(char *line, char buffer);
+int				ft_strlen(const char *s);
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(const char *str, int fd);
+void       		error_handle(const char *message);
+int        		ft_is_num(char c);
+int         	is_valid_int(char *s);
+int          	cmp(char *s1, char *s2);
+void        	check_line(char *line, t_stack a, t_stack b);
 
 
 
