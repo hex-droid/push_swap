@@ -82,4 +82,5 @@ void            stack_debug1(t_stack s)
 	for (int i = s->top_index; i >= 0; i--)
 		printf("%d\n", s->data[i]);
 	printf("|STACK|\n");
+    printf("top_index = %d\n\n", s->top_index);
 }

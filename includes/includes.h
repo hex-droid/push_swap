@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   includes.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/24 09:53:08 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/05/24 10:09:46 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef INCLUDES_H
 # define INCLUDES_H
 
@@ -12,7 +24,6 @@ struct  _stack
 {
 	int         *data;
 	int         size;
-	int         alloc;
 	int         top_index;
 };
 
@@ -42,7 +53,7 @@ void            op_rra(t_stack a, t_stack b);
 void            op_rrb(t_stack a, t_stack b);
 void            op_rrr(t_stack a, t_stack b);
 
-int             stack_is_sorted(t_stack s);
+int             stack_is_sorted(t_stack s); // null if not sorted
 void            checker(t_stack a);
 
 void            stack_debug1(t_stack s);
@@ -54,11 +65,20 @@ char         	*ft_strjoin(char *line, char buffer);
 int				ft_strlen(const char *s);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(const char *str, int fd);
-void       		error_handle(const char *message);
 int        		ft_is_num(char c);
 int         	is_valid_int(char *s);
 int          	cmp(char *s1, char *s2);
 void        	check_line(char *line, t_stack a, t_stack b);
+
+void       		error_handle(const char *message);
+
+//		PUSH SWAP
+
+void			sort_3_elem(t_stack a, t_stack b);
+int				stack_get_min_index(t_stack s);
+int				stack_get_max_index(t_stack s);
+int             stack_get_min(t_stack s);
+int				stack_get_max(t_stack s);
 
 
 
