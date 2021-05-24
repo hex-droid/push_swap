@@ -1,16 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utiils.c                                           :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:07:58 by ztaouil           #+#    #+#             */
-/*   Updated: 2021/05/24 10:07:59 by ztaouil          ###   ########.fr       */
+/*   Updated: 2021/05/24 13:17:17 by ztaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/includes.h"
+
+intarray	stack_to_intarray(t_stack a)
+{
+	int	i;
+	intarray tab;
+
+	tab = empty_create_intarray(stack_size(a));
+	for (i = 0; i <= a->top_index; i++)
+		add_intarray(tab, a->data[i]);
+	return (tab);
+}
 
 int				stack_get_min_index(t_stack s)
 {
@@ -62,4 +73,15 @@ int				stack_get_max(t_stack s)
 
 	max = s->data[stack_get_max_index(s)];
 	return (max);
+}
+
+float			stack_median(t_stack s)
+{
+	intarray    tab;
+    float       median;
+
+	tab = stack_to_intarray(s);
+    median = median_intarray(tab);
+	destroy_intarray(tab);
+	return (median);
 }

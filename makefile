@@ -11,9 +11,11 @@ SRC = 	checker/operations.c\
 		checker/generic_op.c\
 		utils/error.c\
 		utils/utils.c\
+		utils/tools.c\
 		get_next_line/get_next_line.c\
-		push_swap/utiils.c\
+		push_swap/stack_utils.c\
 		push_swap/sort.c\
+		intarray/intarray.c\
 
 SDIR = ./srcs/
 

@@ -6,7 +6,7 @@
 /*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:53:01 by ztaouil           #+#    #+#             */
-/*   Updated: 2021/05/24 10:10:32 by ztaouil          ###   ########.fr       */
+/*   Updated: 2021/05/24 13:28:36 by ztaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,15 @@ int     main(int ac, char **av)
     }
 
     stack_debug1(a);
+    stack_search_compare_pb(a, b, median_intarray(stack_to_intarray(a)));
+    printf("\n\tmedian : %f\n", median_intarray(stack_to_intarray(a)));
+    stack_debug2(a, b);
 
-    if (stack_size(a) == 3)
-        sort_3_elem(a, b);
+    stack_search_compare_pb(a, b, median_intarray(stack_to_intarray(a)));
+    printf("\n\tmedian : %f\n", median_intarray(stack_to_intarray(a)));
 
-
+    stack_debug2(a, b);
+    
     stack_destroy(a);
     stack_destroy(b);
     return (0);

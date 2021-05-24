@@ -84,3 +84,19 @@ void            stack_debug1(t_stack s)
 	printf("|STACK|\n");
     printf("top_index = %d\n\n", s->top_index);
 }
+
+int             stack_is_sorted(t_stack s)
+{
+    int tmp1;
+    int tmp2;
+
+    tmp1 = stack_pop(s);
+    while (!stack_is_empty(s))
+    {
+        tmp2 = stack_pop(s);
+        if (tmp1 > tmp2)
+            return (0);
+        tmp1 = tmp2;
+    }
+    return (1);
+}

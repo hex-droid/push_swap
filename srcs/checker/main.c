@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/24 13:05:44 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/05/24 13:10:45 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/includes.h"
 
 void            check_line(char *line, t_stack a, t_stack b)
@@ -26,22 +38,6 @@ void            check_line(char *line, t_stack a, t_stack b)
         op_rrr(a, b);
     else 
         error_handle("Wrong input");
-}
-
-int             stack_is_sorted(t_stack s)
-{
-    int tmp1;
-    int tmp2;
-
-    tmp1 = stack_pop(s);
-    while (!stack_is_empty(s))
-    {
-        tmp2 = stack_pop(s);
-        if (tmp1 > tmp2)
-            return (0);
-        tmp1 = tmp2;
-    }
-    return (1);
 }
 
 void            checker(t_stack a)

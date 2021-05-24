@@ -6,7 +6,7 @@
 /*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:53:08 by ztaouil           #+#    #+#             */
-/*   Updated: 2021/05/24 10:09:46 by ztaouil          ###   ########.fr       */
+/*   Updated: 2021/05/24 13:09:07 by ztaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "intarray.h"
 
 typedef struct _stack s_stack;
 typedef struct _stack *t_stack;
@@ -71,6 +72,12 @@ int          	cmp(char *s1, char *s2);
 void        	check_line(char *line, t_stack a, t_stack b);
 
 void       		error_handle(const char *message);
+//		INTARRAY UTILS	
+int   			string_to_int (char* str);
+int             safe_string_to_int (char* str, int* ok);
+void            swap_int(int* m, int* n);
+void            swap_char(char* m, char* n);
+intarray		stack_to_intarray(t_stack a);
 
 //		PUSH SWAP
 
@@ -79,6 +86,8 @@ int				stack_get_min_index(t_stack s);
 int				stack_get_max_index(t_stack s);
 int             stack_get_min(t_stack s);
 int				stack_get_max(t_stack s);
+float			stack_median(t_stack s);
+void			stack_search_compare_pb(t_stack a, t_stack b, int median);
 
 
 
