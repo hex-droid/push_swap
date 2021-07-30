@@ -10,10 +10,9 @@ int		main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	load_data(av, &stack_a);
-	t_list *temp = lst_delete_last(stack_a);
-	lst_debug(temp);
-//	lst_free(stack_a);
-	lst_free(temp);
+
+	lst_debug(stack_a);
+	lst_free(stack_a);
 	tools_memory_check_at_end_of_app();
 	return (0);
 }

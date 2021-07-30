@@ -57,17 +57,17 @@ void		lst_free(t_list *lst)
 	}
 }
 
-t_list		*lst_delete_last(t_list *lst)
+void		lst_delete_last(t_list **lst)
 {
 	t_list *temp;
 
-	temp = lst;
-	if (lst == NULL)
-		return 0;
-	if (lst->next == NULL)
-		return 0;
+	temp = *lst;
+	if (*lst == NULL)
+		return ;
+	if ((*lst)->next == NULL)
+		return ;
 	while (temp->next->next != NULL)
 		temp = temp->next;
+	tools_free(temp->next, sizeof(t_list));
 	temp->next = NULL;
-	return (lst);
 }

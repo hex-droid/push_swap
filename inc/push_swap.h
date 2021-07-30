@@ -18,7 +18,7 @@ void		lst_add_back(t_list **alst, t_list *lst);
 t_list		*lst_last(t_list *lst);
 void		lst_debug(t_list *lst);
 void		lst_free(t_list *lst);
-t_list		*lst_delete_last(t_list *lst);
+void		lst_delete_last(t_list **lst);
 
 int		is_valid(t_list *lst, const char *str);
 void		error_exit(t_list *lst, const char *str);
