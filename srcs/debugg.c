@@ -13,7 +13,7 @@ void		lst_debug(t_list *lst)
 	printf ("	%d\n", tmp->data);
 }
 
-void		visualize(t_list *a, t_list *b)
+void		visualize(t_list *a, t_list *b)/*CONTAINS LEAKS*/
 {
     t_list *curr_a;
     t_list *curr_b;

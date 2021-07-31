@@ -21,6 +21,7 @@ typedef struct s_list
 
 t_list		*lst_new(int data);
 void		lst_add_back(t_list **alst, t_list *lst);
+void		lst_add_head(t_list **alst, t_list *lst);
 t_list		*lst_last(t_list *lst);
 void		lst_free(t_list *lst);
 void		lst_delete_last(t_list **lst);
@@ -41,6 +42,12 @@ void		op_sb(t_list **stack_b);
 void		op_ss(t_list **stack_a, t_list **stack_b);
 void		op_pa(t_list **stack_a, t_list **stack_b);
 void		op_pb(t_list **stack_a, t_list **stack_b);
+void		op_ra(t_list **stack_a);
+void		op_rb(t_list **stack_b);
+void		op_rr(t_list **stack_a, t_list **stack_b);
+void		op_rra(t_list **stack_a);
+void		op_rrb(t_list **stack_b);
+void		op_rrr(t_list **stack_a, t_list **stack_b);
 
 size_t		ft_strlen(const char *str);
 char		*ft_itoa(int n);

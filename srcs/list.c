@@ -25,6 +25,17 @@ void		lst_add_back(t_list **alst, t_list *lst)
 	}
 }
 
+void		lst_add_head(t_list **alst, t_list *lst)
+{
+	if (!*alst)
+		*alst = lst;
+	else if (alst && *alst && lst)
+	{
+		lst->next = *alst;
+		*alst = lst;
+	}
+}
+
 t_list		*lst_last(t_list *lst)
 {
 	if (!lst)
