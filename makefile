@@ -8,6 +8,10 @@ SRCS =	srcs/main.c\
 	srcs/list.c\
 	srcs/error.c\
 	srcs/tools.c\
+	srcs/tools2.c\
+	srcs/tools3.c\
+	srcs/operations.c\
+	srcs/debugg.c\
 	\
 	memory_tracking/memory_tracking.c\
 	\

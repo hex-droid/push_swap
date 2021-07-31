@@ -42,11 +42,11 @@ int		is_duplicata(t_list *lst, const char *str)
 	temp = lst;
 	while (temp->next)
 	{
-		if (temp->data == atoi(str))
+		if (temp->data == ft_atoi(str))
 			return (1);
 		temp = temp->next;
 	}
-	if (temp->data == atoi(str))
+	if (temp->data == ft_atoi(str))
 		return (1);
 	return (0);
 }
@@ -57,7 +57,7 @@ void		load_data(char **av, t_list **lst)
 	while (av[i] != 0)
 	{
 		if (is_valid(*lst, av[i]))
-			lst_add_back(lst, lst_new(atoi(av[i])));
+			lst_add_back(lst, lst_new(ft_atoi(av[i])));
 		i++;
 	}	
 }

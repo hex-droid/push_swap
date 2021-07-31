@@ -34,19 +34,6 @@ t_list		*lst_last(t_list *lst)
 	return (lst);
 }
 
-void		lst_debug(t_list *lst)
-{
-	t_list	*tmp;
-
-	tmp = lst;
-	while (tmp->next)
-	{
-		printf("	%d\n", tmp->data);
-		tmp = tmp->next;
-	}
-	printf ("	%d\n", tmp->data);
-}
-
 void		lst_free(t_list *lst)
 {
 	while (lst != NULL)
@@ -70,4 +57,32 @@ void		lst_delete_last(t_list **lst)
 		temp = temp->next;
 	tools_free(temp->next, sizeof(t_list));
 	temp->next = NULL;
+}
+
+size_t		lst_size(t_list *lst)
+{
+	size_t	i;
+
+	i = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst->next)
+	{
+		i++;
+		lst = lst->next;
+	}
+	i++;
+	return (i);
+}
+
+void		lst_delete_first(t_list **lst)
+{
+	t_list	*temp;
+
+	temp = *lst;
+	if (lst == NULL)
+		return ;
+	*lst = (*lst)->next;
+	temp->next = NULL;
+	tools_free(temp, sizeof(t_list));
 }
