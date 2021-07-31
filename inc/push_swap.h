@@ -27,6 +27,7 @@ void		lst_free(t_list *lst);
 void		lst_delete_last(t_list **lst);
 void		lst_delete_first(t_list **lst);
 size_t		lst_size(t_list *lst);
+void		free_all(t_list *a, t_list *b);
 
 int		is_valid(t_list *lst, const char *str);
 int		is_duplicata(t_list *lst, const char *str);

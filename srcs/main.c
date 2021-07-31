@@ -11,19 +11,19 @@ int		main(int ac, char **av)
 		return (0);
 	load_data(av, &stack_a);
 
-	op_pb(&stack_a, &stack_b);
-	op_pb(&stack_a, &stack_b);
-	op_pb(&stack_a, &stack_b);
 
 
 	visualize(stack_a, stack_b);
 	op_rrr(&stack_a, &stack_b);
 	op_rrr(&stack_a, &stack_b);
+	op_rr(&stack_a, &stack_b);
+	op_rr(&stack_a, &stack_b);
+	op_rr(&stack_a, &stack_b);
+
 	
 	visualize(stack_a, stack_b);
 	
-	lst_free(stack_a);
-	lst_free(stack_b);
+	free_all(stack_a, stack_b);
 	tools_memory_check_at_end_of_app();
 	return (0);
 }
