@@ -3,7 +3,7 @@
 int		is_valid(t_list *lst, const char *str)
 {
 	if (!is_num(str))
-		error_exit(lst, "argument != number.");
+		error_exit(lst, "stack not valid.");
 	if (lst)
 	{
 		if (is_duplicata(lst, str))
@@ -17,6 +17,8 @@ int		is_num(const char *str)
 	int i;
 
 	i = 0;
+	if (str[0] == '-')
+		i++;
 	while (str[i] != '\0')
 	{
 		if (!is_nu(str[i]))
