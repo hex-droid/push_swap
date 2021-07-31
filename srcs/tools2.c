@@ -37,7 +37,7 @@ char		*ft_itoa(int n)
 int	ft_atoi(const char *str)
 {
 	int i;
-	int n;
+	long n;
 	int neg;
 
 	i = 0;
@@ -53,7 +53,11 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
+	{	
 		n = n * 10 + (str[i++] - '0');
+		if (n > INT_MAX || n < -INT_MIN)
+			return (ATOI);
+	}
 	return (n * neg);
 }
 

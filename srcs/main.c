@@ -10,19 +10,7 @@ int		main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	load_data(av, &stack_a);
-
-
-
-	visualize(stack_a, stack_b);
-	op_rrr(&stack_a, &stack_b);
-	op_rrr(&stack_a, &stack_b);
-	op_rr(&stack_a, &stack_b);
-	op_rr(&stack_a, &stack_b);
-	op_rr(&stack_a, &stack_b);
-
-	
-	visualize(stack_a, stack_b);
-	
+	printf("ra\npa\npb\npo\n");	
 	free_all(stack_a, stack_b);
 	tools_memory_check_at_end_of_app();
 	return (0);

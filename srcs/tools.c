@@ -57,7 +57,11 @@ void		load_data(char **av, t_list **lst)
 	while (av[i] != 0)
 	{
 		if (is_valid(*lst, av[i]))
+		{	
+			if (ft_atoi(av[i]) == ATOI)
+				error_exit(*lst, "Integer out of bounds.");
 			lst_add_back(lst, lst_new(ft_atoi(av[i])));
+		}
 		i++;
 	}	
 }

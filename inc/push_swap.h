@@ -5,6 +5,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <limits.h>
+# include <errno.h>
 # include "../memory_tracking/memory_tracking.h"
 
 # define GREEN "\e[1;32m"
@@ -12,6 +13,7 @@
 # define WHT "\e[0;37m"
 # define YEL "\e[1;33m"
 # define BLU "\e[1;34m"
+# define ATOI 981231
 
 typedef struct s_list
 {
@@ -55,8 +57,15 @@ char		*ft_itoa(int n);
 int		ft_atoi(const char *str);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strdup(const char *s);
+void		ft_putstr(const char *str);
+int		get_next_line(char **line);
 
 void		lst_debug(t_list *lst);
 void		visualize(t_list *a, t_list *b);
+
+void		check_execute(t_list *a, t_list *b, char *line);
+
+int		is_sorted(t_list *lst);
+void		is_it_sorted(t_list *lst);;
 
 #endif
