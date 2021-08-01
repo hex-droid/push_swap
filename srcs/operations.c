@@ -29,9 +29,9 @@ void		op_push(t_list **a, t_list **b)
 {
 	if (!lst_size(*a))
 		return ;
-	t_list	*temp = lst_new((*a)->data);
-	lst_add_head(b, temp);
-	lst_delete_first(a);	
+	(void)b;
+	lst_add_head(b, lst_new((*a)->data));
+	lst_delete_first(a);
 }
 
 void		op_pb(t_list **stack_a, t_list **stack_b)

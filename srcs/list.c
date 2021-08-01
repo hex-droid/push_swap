@@ -28,7 +28,9 @@ void		lst_add_back(t_list **alst, t_list *lst)
 void		lst_add_head(t_list **alst, t_list *lst)
 {
 	if (!*alst)
+	{
 		*alst = lst;
+	}
 	else if (alst && *alst && lst)
 	{
 		lst->next = *alst;
@@ -52,6 +54,7 @@ void		lst_free(t_list *lst)
 		t_list *tmp = lst;
 		lst = lst->next;
 		tools_free(tmp, sizeof(t_list));
+		tmp = NULL;
 	}
 }
 
@@ -96,4 +99,5 @@ void		lst_delete_first(t_list **lst)
 	*lst = (*lst)->next;
 	temp->next = NULL;
 	tools_free(temp, sizeof(t_list));
+	temp = NULL;
 }

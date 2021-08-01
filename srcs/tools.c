@@ -1,13 +1,13 @@
 #include "../inc/push_swap.h"
 
-int		is_valid(t_list *lst, const char *str)
+int		is_valid(t_list *lst, t_list *b, const char *str)
 {
 	if (!is_num(str))
-		error_exit(lst, "stack not valid.");
+		error_exit(lst, b, "stack not valid.");
 	if (lst)
 	{
 		if (is_duplicata(lst, str))
-			error_exit(lst, "dupliacata argument.");
+			error_exit(lst, b,"dupliacata argument.");
 	}
 	return (1);
 }
@@ -51,15 +51,15 @@ int		is_duplicata(t_list *lst, const char *str)
 	return (0);
 }
 
-void		load_data(char **av, t_list **lst)
+void		load_data(char **av, t_list **lst, t_list *b)
 {
 	int	i = 1;
 	while (av[i] != 0)
 	{
-		if (is_valid(*lst, av[i]))
+		if (is_valid(*lst, b, av[i]))
 		{	
 			if (ft_atoi(av[i]) == ATOI)
-				error_exit(*lst, "Integer out of bounds.");
+				error_exit(*lst, b, "Integer out of bounds.");
 			lst_add_back(lst, lst_new(ft_atoi(av[i])));
 		}
 		i++;

@@ -31,13 +31,13 @@ void		lst_delete_first(t_list **lst);
 size_t		lst_size(t_list *lst);
 void		free_all(t_list *a, t_list *b);
 
-int		is_valid(t_list *lst, const char *str);
+int		is_valid(t_list *lst, t_list *b, const char *str);
 int		is_duplicata(t_list *lst, const char *str);
-void		error_exit(t_list *lst, const char *str);
+void		error_exit(t_list *a, t_list *b, const char *str);
 int		is_num(const char *str);
 int		is_nu(char c);
 
-void		load_data(char **av, t_list **lst);
+void		load_data(char **av, t_list **a, t_list *b);
 
 void		op_swap(t_list **lst);
 void		op_sa(t_list **stack_a);
@@ -67,9 +67,9 @@ int		get_next_line(char **line);
 void		lst_debug(t_list *lst);
 void		visualize(t_list *a, t_list *b);
 
-void		check_execute(t_list *a, t_list *b, char *line);
+void		check_execute(t_list **a, t_list **b, char *line);
 
 int		is_sorted(t_list *lst);
-void		is_it_sorted(t_list *lst);;
+void		is_it_sorted(t_list *a, t_list *b);
 
 #endif

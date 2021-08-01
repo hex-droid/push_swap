@@ -9,19 +9,19 @@ int		main(int ac, char **av)
 
 	if (ac == 1)
 		return (0);
-	load_data(av, &a);
+	load_data(av, &a, b);
+	visualize(a, b);
 	while (get_next_line(&line) > 0)
 	{
-		//check_execute(a, b, line);
+		check_execute(&a, &b, line);
 		printf("%s\n", line);
 		free(line);
 		line = NULL;
 	}
 	free(line);
 	line = NULL;
-
-	lst_debug(a);
-	is_it_sorted(a);
+	visualize(a, b);
+	is_it_sorted(a, b);
 	free_all(a, b);
 	tools_memory_check_at_end_of_app();
 }
