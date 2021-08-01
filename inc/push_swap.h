@@ -52,6 +52,10 @@ void		op_rra(t_list **stack_a);
 void		op_rrb(t_list **stack_b);
 void		op_rrr(t_list **stack_a, t_list **stack_b);
 
+void		op_reverse(t_list **stack_a);
+void		op_rreverse(t_list **x);
+void		op_push(t_list **a, t_list **b);
+
 size_t		ft_strlen(const char *str);
 char		*ft_itoa(int n);
 int		ft_atoi(const char *str);

@@ -22,41 +22,44 @@ void		op_ss(t_list **stack_a, t_list **stack_b)
 
 void		op_pa(t_list **stack_a, t_list **stack_b)
 {
-	if (!lst_size(*stack_b))
+	op_push(stack_b, stack_a);
+}
+
+void		op_push(t_list **a, t_list **b)
+{
+	if (!lst_size(*a))
 		return ;
-	t_list	*temp = lst_new((*stack_b)->data);
-	lst_add_head(stack_a, temp);
-	lst_delete_first(stack_b);
+	t_list	*temp = lst_new((*a)->data);
+	lst_add_head(b, temp);
+	lst_delete_first(a);	
 }
 
 void		op_pb(t_list **stack_a, t_list **stack_b)
 {
-	if (!lst_size(*stack_a))
-		return ;
-	t_list	*temp = lst_new((*stack_a)->data);
-	lst_add_head(stack_b, temp);
-	lst_delete_first(stack_a);	
+	op_push(stack_a, stack_b);
 }
 
 void		op_ra(t_list **stack_a)
+{	
+	op_reverse(stack_a);
+}
+
+void		op_reverse(t_list **stack_a)
 {
 	t_list *temp;
-	
+
 	if (*stack_a == NULL)
 		return ;
 	temp = lst_new((*stack_a)->data);
 	lst_delete_first(stack_a);
 	lst_add_back(stack_a, temp);
 }
+
 void		op_rb(t_list **stack_b)
 {
-	t_list *temp;
-	if (*stack_b == NULL)
-		return ;
-	temp = lst_new((*stack_b)->data);	
-	lst_delete_first(stack_b);
-	lst_add_back(stack_b, temp);	
+	op_reverse(stack_b);	
 }
+
 void		op_rr(t_list **stack_a, t_list **stack_b)
 {
 	op_ra(stack_a);
@@ -65,23 +68,24 @@ void		op_rr(t_list **stack_a, t_list **stack_b)
 
 void		op_rra(t_list **stack_a)
 {
+	op_rreverse(stack_a);
+}
+
+void		op_rreverse(t_list **x)
+{
 	t_list *temp; 
-	if (*stack_a == NULL)
+	if (*x == NULL)
 		return ;
-	temp = lst_new(lst_last(*stack_a)->data);
-	lst_delete_last(stack_a);
-	lst_add_head(stack_a, temp);
+	temp = lst_new(lst_last(*x)->data);
+	lst_delete_last(x);
+	lst_add_head(x, temp);	
 }
 
 void		op_rrb(t_list **stack_b)
 {
-	t_list *temp;
-	if (*stack_b == NULL)
-		return ;
-	temp = lst_new(lst_last(*stack_b)->data);
-	lst_delete_last(stack_b);
-	lst_add_head(stack_b, temp);
+	op_rreverse(stack_b);
 }
+
 void		op_rrr(t_list **stack_a, t_list **stack_b)
 {
 	if (stack_a)
