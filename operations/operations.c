@@ -41,6 +41,7 @@ void		op_push(intarray a, intarray b)
 	if (!length_intarray(a))
 		return ;
 	add_intarray(b, get_intarray(a, 0));
+	op_rrb(b, 0);
 	delete_intarray(a, 0);
 }
 

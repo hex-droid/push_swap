@@ -4,7 +4,7 @@ NAME = push_swap
 
 CHECKER = checker
 
-FLAGS = -Werror -Wextra -Wall #-fsanitize=address
+FLAGS = -Werror -Wextra -Wall -fsanitize=address
 
 SRCS =	push_swap_src/main.c\
 	push_swap_src/error.c\
