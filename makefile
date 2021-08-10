@@ -8,7 +8,6 @@ FLAGS = -Werror -Wextra -Wall -fsanitize=address
 
 SRCS =	push_swap_src/main.c\
 	push_swap_src/error.c\
-	push_swap_src/operations.c\
 	push_swap_src/debugg.c\
 	\
 	memory_tracking/memory_tracking.c\
@@ -20,6 +19,7 @@ SRCS =	push_swap_src/main.c\
 	tools/tools.c\
 	\
 	operations/tools.c\
+	operations/operations.c
 	\
 
 all:	
