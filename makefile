@@ -22,7 +22,7 @@ SRCS =	push_swap_src/main.c\
 	operations/operations.c
 	\
 
-CSRCS =	checker_src/main.c\
+CSRCS =	checker_src/checker.c\
 	checker_src/tools.c\
 	\
 	intarray/intarray.c\

@@ -25,8 +25,8 @@ void		exit_free(intarray a, intarray b);
 
 void		visualize(intarray a, intarray b);
 
-void		sort(intarray *a, intarray *b);
-void		sort_3_elem(intarray *a, intarray *b);
-void		sort_5_elem(intarray *a, intarray *b);
+void		sort(intarray a, intarray b);
+void		sort_3_elem(intarray a, intarray b);
+void		sort_5_elem(intarray a, intarray b);
 
 #endif
