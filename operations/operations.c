@@ -40,7 +40,7 @@ void		op_push(intarray a, intarray b)
 {
 	if (!length_intarray(a))
 		return ;
-	set_intarray(b, 0, get_intarray(a, 0));
+	add_intarray(b, get_intarray(a, 0));
 	delete_intarray(a, 0);
 }
 

@@ -11,7 +11,7 @@ void		visualize(intarray a, intarray b)/*CONTAINS LEAKS*/
 	write(1, WHT, ft_strlen(WHT));
 	for (int i = 0; i < size; i++)
 	{
-		printf("%s      	  %-10s ~       	  %-10s||\n", BLU, (size_a > i) ? ft_itoa(get_intarray(a, i)) : " ", (size_b > i) ? ft_itoa(get_intarray(a, i)) : " ");
+		printf("%s      	  %-10s ~       	  %-10s||\n", BLU, (size_a > i) ? ft_itoa(get_intarray(a, i)) : " ", (size_b > i) ? ft_itoa(get_intarray(b, i)) : " ");
 	}
 	printf("%s", YEL);
 	printf("-----------------------------------------------\n");

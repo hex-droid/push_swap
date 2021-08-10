@@ -9,15 +9,22 @@ int		main(int ac, char **av)
 	if (ac == 1 || load_data(av, a) == 0 || is_sorted(a) == 1)
 		exit_free(a, b);
 //	sort(a, b);
-	debug_intarray(a);
+	visualize(a, b);
 	op_sa(a, 1);
-	debug_intarray(a);
-	op_sa(a, 1);
-	debug_intarray(a);
+	visualize(a, b);
+	op_pb(a, b, 1);
+	op_pb(a, b, 1);
+	op_pb(a, b, 1);
+	visualize(a, b);
 	op_ra(a, 1);
-	debug_intarray(a);
+	visualize(a, b);
 	op_rra(a, 1);
-	debug_intarray(a);
+	visualize(a, b);
+	op_rb(b, 1);
+	visualize(a, b);
+	op_rrb(b, 1);
+	visualize(a, b);
+	
 
 	destroy_intarray(a);
 	destroy_intarray(b);
