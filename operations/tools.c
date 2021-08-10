@@ -20,12 +20,12 @@ void		is_it_sorted(intarray a, intarray b)
 {
 	if (length_intarray(b) != 0)
 	{
-		ft_putstr("KO!\n");
+		ft_putstr("KO\n");
 		return ;
 	}
 	if (is_sorted(a))
 	{	
-		ft_putstr("OK!\n");
+		ft_putstr("OK\n");
 		return ;
 	}
 	ft_putstr("KO!\n");

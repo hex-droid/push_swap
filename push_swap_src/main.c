@@ -9,7 +9,7 @@ int		main(int ac, char **av)
 	if (ac == 1 || load_data(av, a) == 0 || is_sorted(a) == 1)
 		exit_free(a, b);
 //	sort(a, b);
-
+	printf ("sa\nsa\n");
 	destroy_intarray(a);
 	destroy_intarray(b);
 	//tools_memory_check_at_end_of_app();

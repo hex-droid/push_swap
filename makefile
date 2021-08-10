@@ -22,10 +22,28 @@ SRCS =	push_swap_src/main.c\
 	operations/operations.c
 	\
 
+CSRCS =	checker_src/main.c\
+	checker_src/tools.c\
+	\
+	intarray/intarray.c\
+	\
+	parser/parser.c\
+	\
+	operations/operations.c\
+	operations/tools.c\
+	\
+	get_next_line/get_next_line.c\
+	\
+	push_swap_src/error.c\
+	push_swap_src/debugg.c\
+	\
+	tools/tools.c\
+	\
+
 all:	
 	@echo "Compiling...."
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
-#	@$(CC) $(FLAGS) $(CSRCS) -o $(CHECKER)
+	@$(CC) $(FLAGS) $(CSRCS) -o $(CHECKER)
 	@echo "Compiled!"
 	
 	
