@@ -20,7 +20,8 @@
 # define ATOI 981231
 
 
-void		error_exit(intarray a, const char *str);
+void		lock_load(int ac, char **av, intarray a, intarray b);
+void		error_exit(intarray a, intarray b);
 void		exit_free(intarray a, intarray b);
 
 void		visualize(intarray a, intarray b);

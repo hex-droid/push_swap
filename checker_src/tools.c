@@ -25,5 +25,5 @@ void		check_execute(intarray a, intarray b, char *line)
 	else if (!strcmp(line, "rrr"))
 		op_rrr(a, b, 0);	
 	else
-		error_exit(a, "Invalid Operation.");
+		error_exit(a, b);
 }

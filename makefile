@@ -39,6 +39,8 @@ CSRCS =	checker_src/checker.c\
 	\
 	tools/tools.c\
 	\
+	memory_tracking/memory_tracking.c\
+	\
 
 all:	
 	@echo "Compiling...."

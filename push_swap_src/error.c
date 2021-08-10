@@ -1,11 +1,9 @@
 #include "push_swap.h"
 
-void		error_exit(intarray a, const char *str)
+void		error_exit(intarray a, intarray b)
 {
-	printf ("Error: %s\n", str);
-	if (a)
-		destroy_intarray(a);
-	exit (0);
+	printf ("Error\n");
+	exit_free(a, b);
 }
 
 void		exit_free(intarray a, intarray b)

@@ -1,18 +1,24 @@
 #include "push_swap.h"
 
+void		lock_load(int ac, char **av, intarray a, intarray b)
+{
+	if (ac == 1)
+		exit (0);
+	if (load_data(av, a) == 0)
+		error_exit(a, b);
+	if (is_sorted(a) == 1)
+		exit (0);
+}
 int		main(int ac, char **av)
 {
-	//tools_memory_init();
 	intarray	a = standard_empty_create_intarray();
 	intarray	b = standard_empty_create_intarray();
 
-	if (ac == 1 || load_data(av, a) == 0 || is_sorted(a) == 1)
-		exit_free(a, b);
+	lock_load(ac, av, a, b);
 //	sort(a, b);
-	printf ("sa\nsa\n");
+	printf ("sa\n");
 	destroy_intarray(a);
 	destroy_intarray(b);
-	//tools_memory_check_at_end_of_app();
 	return (0);
 }
 
