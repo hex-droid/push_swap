@@ -1,10 +1,10 @@
-#include "../inc/push_swap.h"
+#include "checker.h"
 
 int		main(int ac, char **av)
 {
 	tools_memory_init();
-	t_list *a = NULL;
-	t_list *b = NULL;
+	intarray a = NULL;
+	intarray b = NULL;
 	char *line;
 
 	if (ac == 1)
@@ -13,7 +13,7 @@ int		main(int ac, char **av)
 	visualize(a, b);
 	while (get_next_line(&line) > 0)
 	{
-		check_execute(&a, &b, line);
+		check_execute(a, b, line);
 		printf("%s\n", line);
 		free(line);
 		line = NULL;

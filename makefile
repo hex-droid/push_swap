@@ -6,36 +6,26 @@ CHECKER = checker
 
 FLAGS = -Werror -Wextra -Wall -fsanitize=address
 
-SRCS =	srcs/main.c\
-	srcs/list.c\
-	srcs/error.c\
-	srcs/tools.c\
-	srcs/tools2.c\
-	srcs/tools3.c\
-	srcs/operations.c\
-	srcs/debugg.c\
+SRCS =	push_swap_src/main.c\
+	push_swap_src/error.c\
+	push_swap_src/operations.c\
+	push_swap_src/debugg.c\
 	\
 	memory_tracking/memory_tracking.c\
 	\
-
-CSRCS = srcs_bonus/main.c\
-	srcs_bonus/tools.c\
-	srcs_bonus/get_next_line.c\
-	srcs/list.c\
-	srcs/error.c\
-	srcs/tools.c\
-	srcs/tools2.c\
-	srcs/tools3.c\
-	srcs/operations.c\
-	srcs/debugg.c\
+	intarray/intarray.c\
 	\
-	memory_tracking/memory_tracking.c\
+	parser/parser.c\
+	\
+	tools/tools.c\
+	\
+	operations/tools.c\
 	\
 
 all:	
 	@echo "Compiling...."
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
-	@$(CC) $(FLAGS) $(CSRCS) -o $(CHECKER)
+#	@$(CC) $(FLAGS) $(CSRCS) -o $(CHECKER)
 	@echo "Compiled!"
 	
 	

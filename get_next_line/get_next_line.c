@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+#include "get_next_line.h"
 
 static char	*ft_strjoint(char *line, char buffer)
 {

@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+# include "tools.h"
 
 size_t		ft_strlen(const char *str)
 {
@@ -14,7 +14,7 @@ char		*ft_itoa(int n)
 {
 	char	*str;
 
-	if (!(str = (char *)tools_malloc(sizeof(char) * 2)))
+	if (!(str = (char *)malloc(sizeof(char) * 2)))
 		return (NULL);
 	if (n == -2147483648)
 		return (str = ft_strdup("-2147483648"));
@@ -71,7 +71,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	a = 0;
 	if (s1 && s2)
 	{
-		if (!(str = tools_malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+		if (!(str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
 			return (0);
 		while (s1[i])
 		{
@@ -84,8 +84,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			a++;
 		}
 		str[i + a] = '\0';
-		tools_free((void *)s1, ft_strlen(s1) * sizeof(char));
-		tools_free((void *)s2, ft_strlen(s2) * sizeof(char));
+		free((void *)s1);
+		free((void *)s2);
 		return (str);
 	}
 	return (NULL);
@@ -99,7 +99,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	while (s[i] != '\0')
 		i++;
-	if (!(ptr = (char*)tools_malloc(sizeof(char) * i + 1)))
+	if (!(ptr = (char*)malloc(sizeof(char) * i + 1)))
 		return (0);
 	i = 0;
 	while (s[i])
@@ -109,4 +109,71 @@ char	*ft_strdup(const char *s)
 	}
 	ptr[i] = '\0';
 	return (ptr);
+}
+
+void		ft_putstr(const char *str)
+{
+	ft_putstr_fd(str, 1);
+}
+
+void		ft_putstr_fd(const char *str, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(fd, &str[i], 1);
+		i++;
+	}	
+}
+
+int     string_to_int (char* str)
+{
+    int ok;
+    int n = safe_string_to_int(str, &ok);
+    if (ok == 0)
+        printf ("string_to_int : chaine de character %s invalide \n", str);
+    return (n);
+}
+
+int		safe_string_to_int (char* str, int* ok)
+{
+    int i;
+    int n = 0;
+    *ok = 1;
+
+    if (str[0] == '-')
+        return (- safe_string_to_int (str + 1, ok));
+    if (!(*str))
+    {   
+        *ok = 0;
+        return (0);
+    }
+    for (i = 0; (str[i] != '\0'); i++)
+    {
+        if ((str[i] < '0') || (str[i] > '9'))
+            *ok = 0;
+        n *= 10;
+        n += (str[i] - 48);
+    }
+    return (n);
+}
+
+void		swap_int(int* m, int* n)
+{
+	int tmp;
+
+	tmp = *m;
+	*m = *n;
+	*n = tmp;
+}
+
+void		swap_char(char* m, char* n)
+{
+    char tmp;
+
+    tmp = *m;
+    *m = *n;
+    *n = tmp;  
 }
