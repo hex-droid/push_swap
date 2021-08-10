@@ -9,6 +9,15 @@ int		main(int ac, char **av)
 	if (ac == 1 || load_data(av, a) == 0 || is_sorted(a) == 1)
 		exit_free(a, b);
 //	sort(a, b);
+	debug_intarray(a);
+	op_sa(a, 1);
+	debug_intarray(a);
+	op_sa(a, 1);
+	debug_intarray(a);
+	op_ra(a, 1);
+	debug_intarray(a);
+	op_rra(a, 1);
+	debug_intarray(a);
 
 	destroy_intarray(a);
 	destroy_intarray(b);
