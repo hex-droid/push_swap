@@ -17,7 +17,6 @@
 # define WHT "\e[0;37m"
 # define YEL "\e[1;33m"
 # define BLU "\e[1;34m"
-# define ATOI 981231
 
 
 void		lock_load(int ac, char **av, intarray a, intarray b);
@@ -27,7 +26,9 @@ void		exit_free(intarray a, intarray b);
 void		visualize(intarray a, intarray b);
 
 void		sort(intarray a, intarray b);
+void		sort_2_elem(intarray a, intarray b);
 void		sort_3_elem(intarray a, intarray b);
+void		sort_4_elem(intarray a, intarray b);
 void		sort_5_elem(intarray a, intarray b);
 
 #endif
