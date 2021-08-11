@@ -16,7 +16,7 @@ int		main(int ac, char **av)
 
 	lock_load(ac, av, a, b);
 //	sort(a, b);
-	printf ("sa\n");
+	debug_intarray(a);
 	destroy_intarray(a);
 	destroy_intarray(b);
 	return (0);

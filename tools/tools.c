@@ -36,6 +36,21 @@ char		*ft_itoa(int n)
 
 int	ft_atoi(const char *str)
 {
+	int n;
+	int ret;
+
+	n = 0;
+	ret = ext_ft_atoi(str, &n);
+	if (n)
+	{	
+		ft_putstr_fd("Error\n", 2);
+		exit (0);
+	}
+	return (ret);
+}
+
+int		ext_ft_atoi(const char *str, int *x)
+{
 	int i;
 	long n;
 	int neg;
@@ -56,7 +71,7 @@ int	ft_atoi(const char *str)
 	{	
 		n = n * 10 + (str[i++] - '0');
 		if (n > INT_MAX || n < -INT_MIN)
-			return (ATOI);
+			*x = 1;
 	}
 	return (n * neg);
 }

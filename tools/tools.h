@@ -10,6 +10,7 @@
 
 size_t		ft_strlen(const char *str);
 char		*ft_itoa(int n);
+int		ext_ft_atoi(const char *str, int *x);
 int		ft_atoi(const char *str);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strdup(const char *s);
