@@ -28,7 +28,16 @@ void		visualize(intarray a, intarray b);
 void		sort(intarray a, intarray b);
 void		sort_2_elem(intarray a, intarray b);
 void		sort_3_elem(intarray a, intarray b);
+void		ext_sort_3_elem(intarray a);
 void		sort_4_elem(intarray a, intarray b);
 void		sort_5_elem(intarray a, intarray b);
+void		bigsort(intarray a, intarray b);
+void		ext_bigsort(intarray a, intarray b);
 
+void		min_pb(intarray a, intarray b);
+void		sp_min_pb(intarray a, intarray b, int len, int pos);
+void		ext_min_pb(intarray a, intarray b, int len, int pos);
+void		max_pa(intarray a, intarray b);
+void		ext_max_pa(intarray a, intarray b, int pos, int len);
+int		is_odd(int nb);
 #endif

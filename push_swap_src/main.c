@@ -33,6 +33,20 @@ void	unit_test(intarray a, intarray b)
 	debug_intarray(b);
 }
 
+void		sort(intarray a, intarray b)
+{
+	if (length_intarray(a) == 2)
+		sort_2_elem(a, b);
+	else if (length_intarray(a) == 3)
+		sort_3_elem(a, b);
+	else if (length_intarray(a) == 4)
+		sort_4_elem(a, b);
+	else if (length_intarray(a) == 5)
+		sort_5_elem(a, b);
+	else
+		bigsort(a, b);
+}
+
 void		lock_load(int ac, char **av, intarray a, intarray b)
 {
 	if (ac == 1)
