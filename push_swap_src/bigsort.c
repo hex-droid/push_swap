@@ -1,42 +1,78 @@
 #include "push_swap.h"
 
-void		bigsort(intarray a, intarray b)
+void		get_b_top(intarray b, t_variables *vars)
 {
-	int	range;
-	int	i;
-	int	iter = 0;
-
-	i = 0;
-	range = get_min_intarray(a);
-	int len = length_intarray(a);
-	while (length_intarray(a) != 0)
+	if (vars->index_move < (vars->size / 2))
 	{
-		i = 0;
-		while (i < length_intarray(a))
-		{
-			if (get_intarray(a, i) <= range)
-			{
-				sp_min_pb(a, b, length_intarray(a), i + 1);
-			}
-			i++;
-		}
-		range += 30;
-		iter++;
+		while (++vars->k < vars->index_move)
+			op_rb(b, 1);
 	}
-	exit(0);
-	ext_bigsort(a, b);
-	printf ("Iteration number1 : %d\n", iter);
-	printf ("size		%d\n", len);
-
+	else
+	{
+		while (++vars->k < (vars->size - vars->index_move))
+			op_rrb(b, 1);
+	}
 }
 
-void		ext_bigsort(intarray a, intarray b)
+void		get_a_top(intarray a, t_variables *vars)
 {
-	int i = 0;
-
-	while (length_intarray(b) != 0)
+	if (vars->closest < (vars->size / 2))
 	{
-		max_pa(a, b);i++;
+		while (++vars->k < vars->closest)
+			op_ra(a, 1);
 	}
-	printf ("Iteration number2 : %d\n", i);
+	else
+	{
+		while (++vars->k < (vars->size - vars->closest))
+			op_rra(a, 1);
+	}
+}
+
+void		finish(intarray a, t_variables *vars)
+{
+	if (vars->min_index > (vars->size / 2))
+	{
+		while (get_intarray(a, 0) != vars->min_val)
+			op_rra(a, 1);
+	}
+	else
+	{
+		while (get_intarray(a, 0) != vars->min_val)
+			op_ra(a, 1);
+	}
+}
+
+void		bigsort(intarray a, intarray b)
+{
+	t_variables vars;
+
+	vars.i = -1;
+	pb_nmin_nmax(a, b);
+	vars.fsize = length_intarray(b);
+	while (++vars.i < vars.fsize)
+	{
+		vars.size = length_intarray(b);
+		vars.moves = malloc(vars.size * sizeof(int));
+		vars.j = -1;
+		while (++vars.j < vars.size)
+			compute_op(a, b, &vars);
+		vars.k = -1;
+		vars.index_move = get_index_move(vars.moves, vars.size);
+		get_b_top(b, &vars);
+		vars.k = -1;
+		vars.closest = get_index_closest(a, get_intarray(b, 0));
+		vars.size = length_intarray(a);
+		get_a_top(a, &vars);
+		op_pa(a, b, 1);
+		free(vars.moves);
+	}
+	ext_bigsort(a, &vars);
+}
+
+void		ext_bigsort(intarray a, t_variables *vars)
+{
+	vars->size = length_intarray(a);
+	vars->min_index = get_index_min_intarray(a);
+	vars->min_val = get_min_intarray(a);
+	finish(a, vars);
 }

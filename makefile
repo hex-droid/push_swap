@@ -11,6 +11,7 @@ SRCS =	push_swap_src/main.c\
 	push_swap_src/debugg.c\
 	push_swap_src/push_swap.c\
 	push_swap_src/utils.c\
+	push_swap_src/utils2.c\
 	push_swap_src/bigsort.c\
 	\
 	memory_tracking/memory_tracking.c\

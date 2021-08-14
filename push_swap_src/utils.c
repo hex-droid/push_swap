@@ -1,101 +1,82 @@
 #include "push_swap.h"
 
-int		is_odd(int nb)
+void		ext_pb_nmin_nmax(intarray a, intarray b, int mid)
 {
-	if (nb % 2 == 0)
-		return (0);
-	return (1);
+	op_pb(a, b, 1);
+	if (get_intarray(b, 0) >= mid)
+		op_rb(b, 1);
 }
 
-void		min_pb(intarray a, intarray b)
+void		pb_nmin_nmax(intarray a, intarray b)
 {
-	int	pos;
-	int	len;
+	int	min;
+	int	max;
+	int	mid;
+	int	size;
 
-	len = length_intarray(a);
-	pos = get_index_min_intarray(a) + 1;
-	sp_min_pb(a, b, len, pos);
-/* 	if (pos <= 2)
+	size = length_intarray(a);
+	min = get_min_intarray(a);
+	max = get_max_intarray(a);
+	mid = (int)median_intarray(a);
+	while (--size >= 0)
 	{
-		if (pos > 1)
-			op_sa(a, 1);
-		op_pb(a, b, 1);
-	}
-	else
-		ext_min_pb(a, b, len, pos); */
-}
-
-void		sp_min_pb(intarray a, intarray b, int len, int pos)
-{
-	if (pos <= 2)
-	{
-		if (pos > 1)
-			op_sa(a, 1);
-		op_pb(a, b, 1);
-	}
-	else
-		ext_min_pb(a, b, len, pos);
-}
-
-void		ext_min_pb(intarray a, intarray b, int len, int pos)
-{
-	if ((is_odd(len) == 1 && pos <= (len / 2) + 1) 
-	|| (is_odd(len) == 0 && pos <= len / 2))
-	{
-		while (pos > 1)
-		{
+		if (get_intarray(a, 0) != min && get_intarray(a, 0) != max)
+			ext_pb_nmin_nmax(a, b, mid);
+		else
 			op_ra(a, 1);
-			pos--;
-		}
 	}
-	else if ((is_odd(len) == 1 && pos > (len / 2)) 
-		|| (is_odd(len) == 0 && pos > (len / 2)))
-	{
-		while (pos <= len)
-		{
-			op_rra(a, 1);
-			pos++;
-		}
-	}
-	op_pb(a, b, 1);	
+	if (get_intarray(a, 0) < get_intarray(a, 1))
+		op_ra(a, 1);
 }
 
-void		max_pa(intarray a, intarray b)
+int		get_index_closest(intarray x, int val)
 {
-	int	len;
-	int	pos;
+	int	i;
+	int	result;
+	int	res_val;
 
-	len = length_intarray(b);
-	pos = get_index_max_intarray(b) + 1;
-	if (pos <= 2)
+	i = -1;
+	res_val = get_max_intarray(x);
+	result = get_index_max_intarray(x);
+	while (++i < length_intarray(x))
 	{
-		if (pos > 1)
-			op_sb(b, 1);
-		op_pa(a, b, 1);
+		if (val < get_intarray(x, i) && get_intarray(x, i) < res_val)
+		{
+			res_val = get_intarray(x, i);
+			result = i;
+		}
 	}
+	return (result);
+}
+
+void		compute_op(intarray a, intarray b, t_variables *vars)
+{
+	vars->closest = get_index_closest(a, get_intarray(b, vars->j));
+	vars->asize = length_intarray(a);
+	if (vars->closest > (vars->asize / 2))
+		vars->closest = vars->asize - vars->closest;
+	if (vars->j < (vars->size / 2))
+		vars->moves[vars->j] = vars->j + vars->closest;
 	else
-		ext_max_pa(a, b, pos, len);
+		vars->moves[vars->j] = (vars->size - vars->j) + vars->closest;
 }
 
-void		ext_max_pa(intarray a, intarray b, int pos, int len)
+int		get_index_move(int *tab, int size)
 {
-	if ((is_odd(len) && pos <= (len / 2) + 1) 
-	|| (!is_odd(len) && pos <= len / 2))
+	int	min_index;
+	int	min_val;
+	int	i;
+
+	min_val = tab[0];
+	min_index = 0;
+	i = 0;
+	while (++i < size)
 	{
-		while (pos > 1)
+		if (tab[i] < min_val)
 		{
-			op_rb(b, 1);
-			pos--;
+			min_index = i;
+			min_val = tab[i];
 		}
 	}
-	else if ((is_odd(len) && pos > (len / 2)) 
-		|| (!is_odd(len) && pos > (len / 2)))
-	{
-		while (pos <= len)
-		{
-			op_rrb(b, 1);
-			pos++;
-		}
-	}
-	op_pa(a, b, 1);		
+	return (min_index);
 }
