@@ -2,8 +2,10 @@
 
 void		error_exit(intarray a, intarray b, int flag)
 {
-	if (flag)
+	if (flag == 1)
 		ft_putstr_fd ("Error\n", 2);
+	if (flag == 2)
+		ft_putstr_fd ("Error\n", 1);
 	exit_free(a, b);
 }
 

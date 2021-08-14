@@ -4,7 +4,7 @@ NAME = push_swap
 
 CHECKER = checker
 
-FLAGS = -Werror -Wextra -Wall -fsanitize=address
+FLAGS = -g -Werror -Wextra -Wall -fsanitize=address
 
 SRCS =	push_swap_src/main.c\
 	push_swap_src/error.c\
@@ -47,12 +47,14 @@ CSRCS =	checker_src/checker.c\
 	\
 
 all:	
-	@echo "Compiling...."
+	@echo "Compiling push_swap"
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+	@echo "Compiled!"
+
+bonus:
+	@echo "Compiling checker"
 	@$(CC) $(FLAGS) $(CSRCS) -o $(CHECKER)
 	@echo "Compiled!"
-	
-	
 clean:
 	@rm -rf */*.h.gch
 
@@ -60,6 +62,6 @@ fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf $(CHECKER)
 
-re : fclean all
+re : fclean all bonus
 
 .PHONY: all clean fclean re

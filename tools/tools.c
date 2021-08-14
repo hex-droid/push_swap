@@ -53,23 +53,25 @@ int		ext_ft_atoi(const char *str, int *x)
 
 	i = 0;
 	n = 0;
-	neg = 1;
+	neg = 0;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
 			|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			neg = -1;
+			neg = 1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{	
 		n = n * 10 + (str[i++] - '0');
-		if (n > INT_MAX || n < -INT_MIN)
+		if ((n > 2147483647 && !neg) || (-n < -2147483648 && neg))
 			*x = 1;
 	}
-	return (n * neg);
+	if (neg)
+		return ((int)(n * -1));
+	return ((int)n);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

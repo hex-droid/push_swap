@@ -5,7 +5,12 @@ void		fault_check(int ac, char **av, intarray a, intarray b)
 	if (ac == 1)
 		exit (0);
 	if (load_data(av, a) == 0)
+		error_exit(a, b, 1);
+	if (is_sorted(a))
+	{	
+		ft_putstr_fd("OK\n", 1);
 		error_exit(a, b, 0);
+	}
 }
 
 void		read_execute(intarray a, intarray b)
