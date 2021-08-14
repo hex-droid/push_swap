@@ -41,11 +41,7 @@ int	ft_atoi(const char *str)
 
 	n = 0;
 	ret = ext_ft_atoi(str, &n);
-	if (n)
-	{	
-		ft_putstr_fd("Error\n", 2);
-		exit (0);
-	}
+	(void)n;
 	return (ret);
 }
 

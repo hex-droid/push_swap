@@ -1,6 +1,5 @@
 # include "parser.h"
 
-
 int		is_num(const char *str)
 {
 	int i;
@@ -26,13 +25,17 @@ int		is_nu(char c)
 
 int		load_data(char **av, intarray a)
 {
-	int	i = 1;
+	int	i;
+	int	flag;
+
+	i = 1;
+	flag = 0;
 	while (av[i] != 0)
 	{
 		if (is_num(av[i]))
 		{	
-			add_intarray(a, ft_atoi(av[i]));
-			if (nb_occurences_intarray(a, ft_atoi(av[i])) > 1)
+			add_intarray(a, ext_ft_atoi(av[i], &flag));
+			if (nb_occurences_intarray(a, ft_atoi(av[i])) > 1 || flag)
 				return (0);
 		}
 		else

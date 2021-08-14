@@ -34,7 +34,7 @@ typedef struct s_variables
 }	t_variables;
 
 void		lock_load(int ac, char **av, intarray a, intarray b);
-void		error_exit(intarray a, intarray b);
+void		error_exit(intarray a, intarray b, int flag);
 void		exit_free(intarray a, intarray b);
 
 void		visualize(intarray a, intarray b);

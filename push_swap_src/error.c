@@ -1,8 +1,9 @@
 #include "push_swap.h"
 
-void		error_exit(intarray a, intarray b)
+void		error_exit(intarray a, intarray b, int flag)
 {
-	printf ("Error\n");
+	if (flag)
+		ft_putstr_fd ("Error\n", 2);
 	exit_free(a, b);
 }
 
