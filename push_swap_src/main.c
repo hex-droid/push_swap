@@ -1,38 +1,5 @@
 #include "push_swap.h"
 
-void	unit_test(intarray a, intarray b)
-{
-	debug_intarray(a);
-	debug_intarray(b);
-	op_pb(a, b, 1);
-	op_pb(a, b, 1);
-	op_pb(a, b, 1);
-	op_pb(a, b, 1);
-	op_sa(a, 1);
-	op_sb(b, 1);
-	op_ss(a, b, 1);
-	op_pa(a, b, 1);
-	op_pb(a, b, 1);
-	op_ra(a, 1);
-	op_rb(b, 1);
-	op_rr(a, b, 1);
-	op_rra(a, 1);
-	op_rrb(b, 1);
-	op_rrr(a, b, 1);
-	op_sb(b, 1);
-	op_ss(a, b, 1);
-	op_pa(a, b, 1);
-	op_pb(a, b, 1);
-	op_ra(a, 1);
-	op_rb(b, 1);
-	op_rr(a, b, 1);
-	op_rra(a, 1);
-	op_rrb(b, 1);
-	op_rrr(a, b, 1);
-	debug_intarray(a);
-	debug_intarray(b);
-}
-
 void		sort(intarray a, intarray b)
 {
 	if (length_intarray(a) == 2)
@@ -63,7 +30,6 @@ int		main(int ac, char **av)
 
 	lock_load(ac, av, a, b);
 	sort(a, b);
-//	unit_test(a, b);
 	destroy_intarray(a);
 	destroy_intarray(b);
 	return (0);
