@@ -19,7 +19,7 @@ void		lock_load(int ac, char **av, intarray a, intarray b)
 	if (ac == 1)
 		exit (0);
 	if (load_data(av, a) == 0)
-		error_exit(a, b, 2);
+		error_exit(a, b, 1);
 	if (is_sorted(a) == 1)
 		error_exit(a, b, 0);
 }

@@ -28,7 +28,7 @@ void		get_a_top(intarray a, t_variables *vars)
 	}
 }
 
-void		finish(intarray a, t_variables *vars)
+void		ra_rra(intarray a, t_variables *vars)
 {
 	if (vars->min_index > (vars->size / 2))
 	{
@@ -74,5 +74,5 @@ void		ext_bigsort(intarray a, t_variables *vars)
 	vars->size = length_intarray(a);
 	vars->min_index = get_index_min_intarray(a);
 	vars->min_val = get_min_intarray(a);
-	finish(a, vars);
+	ra_rra(a, vars);
 }

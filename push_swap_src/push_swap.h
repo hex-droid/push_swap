@@ -60,7 +60,7 @@ int		get_index_closest(intarray x, int val);
 int		get_index_move(int *tab, int size);
 void		get_b_top(intarray b, t_variables *vars);
 void		get_a_top(intarray a, t_variables *vars);
-void		finish(intarray a, t_variables *vars);
+void		ra_rra(intarray a, t_variables *vars);
 
 int		is_odd(int nb);
 
