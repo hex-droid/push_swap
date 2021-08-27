@@ -6,7 +6,6 @@
 # include <string.h>
 # include <limits.h>
 # include <errno.h>
-# include "../memory_tracking/memory_tracking.h"
 # include "../tools/tools.h"
 # include "../intarray/intarray.h"
 # include "../parser/parser.h"

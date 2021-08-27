@@ -30,7 +30,6 @@ void		read_execute(intarray a, intarray b)
 
 int		main(int ac, char **av)
 {
-	tools_memory_init();
 	intarray a = standard_empty_create_intarray();
 	intarray b = standard_empty_create_intarray();
 
@@ -38,5 +37,4 @@ int		main(int ac, char **av)
 	read_execute(a, b);
 	destroy_intarray(a);
 	destroy_intarray(b);
-	tools_memory_check_at_end_of_app();
 }

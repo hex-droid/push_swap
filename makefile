@@ -14,8 +14,6 @@ SRCS =	push_swap_src/main.c\
 	push_swap_src/utils2.c\
 	push_swap_src/bigsort.c\
 	\
-	memory_tracking/memory_tracking.c\
-	\
 	intarray/intarray.c\
 	\
 	parser/parser.c\
@@ -42,8 +40,6 @@ CSRCS =	checker_src/checker.c\
 	push_swap_src/debugg.c\
 	\
 	tools/tools.c\
-	\
-	memory_tracking/memory_tracking.c\
 	\
 
 all:	
