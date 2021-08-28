@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 10:05:40 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/08/28 12:01:17 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 
-void		fault_check(int ac, char **av, intarray a, intarray b)
+void	fault_check(int ac, char **av, t_intarray a, t_intarray b)
 {
 	if (ac == 1)
 		exit (0);
@@ -13,7 +25,7 @@ void		fault_check(int ac, char **av, intarray a, intarray b)
 	}
 }
 
-void		read_execute(intarray a, intarray b)
+void	read_execute(t_intarray a, t_intarray b)
 {
 	char	*line;
 
@@ -28,11 +40,13 @@ void		read_execute(intarray a, intarray b)
 	is_it_sorted(a, b);
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	intarray a = standard_empty_create_intarray();
-	intarray b = standard_empty_create_intarray();
+	t_intarray	a;
+	t_intarray	b;
 
+	a = standard_empty_create_intarray();
+	b = standard_empty_create_intarray();
 	fault_check(ac, av, a, b);
 	read_execute(a, b);
 	destroy_intarray(a);

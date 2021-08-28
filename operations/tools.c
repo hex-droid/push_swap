@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 10:39:31 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/08/28 11:57:15 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "operations.h"
 
-int		is_sorted(intarray lst)
+int	is_sorted(t_intarray lst)
 {
 	int	i;
 
@@ -16,7 +28,7 @@ int		is_sorted(intarray lst)
 	return (1);
 }
 
-void		is_it_sorted(intarray a, intarray b)
+void	is_it_sorted(t_intarray a, t_intarray b)
 {
 	if (length_intarray(b) != 0)
 	{

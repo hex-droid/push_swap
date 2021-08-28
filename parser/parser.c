@@ -1,9 +1,21 @@
-# include "parser.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 10:45:17 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/08/28 11:57:48 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		is_num(char *str)
+#include "parser.h"
+
+int	is_num(char *str)
 {
-	int i;
-	int flag;
+	int	i;
+	int	flag;
 
 	i = 0;
 	flag = 0;
@@ -19,14 +31,14 @@ int		is_num(char *str)
 	return (1);
 }
 
-int		is_nu(char c)
+int	is_nu(char c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
 }
 
-int		load_data(char **av, intarray a)
+int	load_data(char **av, t_intarray a)
 {
 	int	i;
 
@@ -43,5 +55,5 @@ int		load_data(char **av, intarray a)
 			return (0);
 		i++;
 	}
-	return (1);	
+	return (1);
 }

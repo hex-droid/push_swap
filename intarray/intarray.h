@@ -1,51 +1,52 @@
-#ifndef __INTARRAY_H__
-#define __INTARRAY_H__
-#include <stdio.h>
-#include <stdlib.h>
-# include "../tools/tools.h"
-#define INTARRAY_ALLOC 4
-/* "semantique par reference uniforme" */
-typedef struct _intarray*	intarray;
-typedef struct _intarray	s_intarray;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   intarray.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 11:07:58 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/08/28 13:23:22 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-struct _intarray	{
-	int*	data;
+#ifndef INTARRAY_H
+# define INTARRAY_H
+
+# include <stdlib.h>
+# include "../tools/tools.h"
+# define INTARRAY_ALLOC 4
+
+typedef struct s_intarray*	t_intarray;
+
+struct s_intarray
+{
+	int		*data;
 	int		len;
 	int		alloc;
 };
 
-/*			prototypes des fonctions 		*/
-intarray	create_intarray (int len);
-intarray	empty_create_intarray(int alloc);
-intarray	standard_empty_create_intarray(void);
-void		debug_intarray (intarray tab);
-void		ext_debug_intarray (intarray tab);
-void		print_positive_values_intarray (intarray tab);
-int		search_intarray (intarray tab, int n);
-int		nb_occurences_intarray (intarray tab, int n);
-int		get_intarray (intarray tab, int index);
-void		destroy_intarray (intarray tab);
-void		set_intarray (intarray tab, int index, int value);
-int		length_intarray (intarray tab);
-intarray	concat_intarray(intarray t1, intarray t2);
-int		get_min_intarray(intarray tab);
-int		get_index_min_intarray(intarray tab);
-int		get_index_min_from_intarray(intarray tab, int n);
-void		sort1_intarray(intarray tab);
-int		sum_intarray (intarray tab);
-float		average_intarray (intarray tab);
-intarray	clone_intarray(intarray tab);
-float		median_intarray (intarray tab);
-int		get_max_intarray (intarray tab);
-int		get_index_max_from_intarray (intarray tab, int n);
-int		get_index_max_intarray (intarray tab);
-void		unsorted_delete_intarray(intarray tab, int index);
-void		delete_intarray(intarray tab, int index);
-void		add_intarray(intarray tab, int value);
-
-void		ext_set_intarray (intarray tab, int index, int value);
-void		resize_intarray (intarray tab, int newalloc);
-/*
- */
-/*	*/
+void		aux_create_intarray(t_intarray tab);
+t_intarray	create_intarray(int len);
+t_intarray	empty_create_intarray(int alloc);
+t_intarray	standard_empty_create_intarray(void);
+int			search_intarray(t_intarray tab, int n);
+int			nb_occurences_intarray(t_intarray tab, int n);
+int			get_intarray(t_intarray tab, int index);
+void		destroy_intarray(t_intarray tab);
+void		set_intarray(t_intarray tab, int index, int value);
+int			length_intarray(t_intarray tab);
+int			get_min_intarray(t_intarray tab);
+int			get_index_min_intarray(t_intarray tab);
+int			get_index_min_from_intarray(t_intarray tab, int n);
+t_intarray	clone_intarray(t_intarray tab);
+float		median_intarray(t_intarray tab);
+void		sort1_intarray(t_intarray tab);
+int			get_max_intarray(t_intarray tab);
+int			get_index_max_from_intarray(t_intarray tab, int n);
+int			get_index_max_intarray(t_intarray tab);
+void		delete_intarray(t_intarray tab, int index);
+void		add_intarray(t_intarray tab, int value);
+void		ext_set_intarray(t_intarray tab, int index, int value);
+void		resize_intarray(t_intarray tab, int newalloc);
 #endif

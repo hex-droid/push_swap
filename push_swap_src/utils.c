@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 10:46:30 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/08/28 12:00:39 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void		ext_pb_nmin_nmax(intarray a, intarray b, int mid)
+void	ext_pb_nmin_nmax(t_intarray a, t_intarray b, int mid)
 {
 	op_pb(a, b, 1);
 	if (get_intarray(b, 0) >= mid)
 		op_rb(b, 1);
 }
 
-void		pb_nmin_nmax(intarray a, intarray b)
+void	pb_nmin_nmax(t_intarray a, t_intarray b)
 {
 	int	min;
 	int	max;
@@ -29,7 +41,7 @@ void		pb_nmin_nmax(intarray a, intarray b)
 		op_ra(a, 1);
 }
 
-int		get_index_closest(intarray x, int val)
+int	get_index_closest(t_intarray x, int val)
 {
 	int	i;
 	int	result;
@@ -49,7 +61,7 @@ int		get_index_closest(intarray x, int val)
 	return (result);
 }
 
-void		compute_op(intarray a, intarray b, t_variables *vars)
+void	compute_op(t_intarray a, t_intarray b, t_variables *vars)
 {
 	vars->closest = get_index_closest(a, get_intarray(b, vars->j));
 	vars->asize = length_intarray(a);
@@ -61,7 +73,7 @@ void		compute_op(intarray a, intarray b, t_variables *vars)
 		vars->moves[vars->j] = (vars->size - vars->j) + vars->closest;
 }
 
-int		get_index_move(int *tab, int size)
+int	get_index_move(int *tab, int size)
 {
 	int	min_index;
 	int	min_val;

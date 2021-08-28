@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 10:46:26 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/08/28 11:55:31 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -32,35 +44,33 @@ typedef struct s_variables
 	int	min_val;
 }	t_variables;
 
-void		lock_load(int ac, char **av, intarray a, intarray b);
-void		error_exit(intarray a, intarray b, int flag);
-void		exit_free(intarray a, intarray b);
+void		lock_load(int ac, char **av, t_intarray a, t_intarray b);
+void		error_exit(t_intarray a, t_intarray b, int flag);
+void		exit_free(t_intarray a, t_intarray b);
 
-void		visualize(intarray a, intarray b);
+void		sort(t_intarray a, t_intarray b);
+void		sort_2_elem(t_intarray a, t_intarray b);
+void		sort_3_elem(t_intarray a, t_intarray b);
+void		ext_sort_3_elem(t_intarray a);
+void		sort_4_elem(t_intarray a, t_intarray b);
+void		sort_5_elem(t_intarray a, t_intarray b);
 
-void		sort(intarray a, intarray b);
-void		sort_2_elem(intarray a, intarray b);
-void		sort_3_elem(intarray a, intarray b);
-void		ext_sort_3_elem(intarray a);
-void		sort_4_elem(intarray a, intarray b);
-void		sort_5_elem(intarray a, intarray b);
+void		min_pb(t_intarray a, t_intarray b);
+void		sp_min_pb(t_intarray a, t_intarray b, int len, int pos);
+void		ext_min_pb(t_intarray a, t_intarray b, int len, int pos);
 
-void		min_pb(intarray a, intarray b);
-void		sp_min_pb(intarray a, intarray b, int len, int pos);
-void		ext_min_pb(intarray a, intarray b, int len, int pos);
+void		bigsort(t_intarray a, t_intarray b);
+void		ext_bigsort(t_intarray a, t_variables *vars);
 
-void		bigsort(intarray a, intarray b);
-void		ext_bigsort(intarray a, t_variables *vars);
+void		compute_op(t_intarray a, t_intarray b, t_variables *vars);
+void		pb_nmin_nmax(t_intarray a, t_intarray b);
+void		ext_pb_nmin_nmax(t_intarray a, t_intarray b, int mid);
+int			get_index_closest(t_intarray x, int val);
+int			get_index_move(int *tab, int size);
+void		get_b_top(t_intarray b, t_variables *vars);
+void		get_a_top(t_intarray a, t_variables *vars);
+void		ra_rra(t_intarray a, t_variables *vars);
 
-void		compute_op(intarray a, intarray b, t_variables *vars);
-void		pb_nmin_nmax(intarray a, intarray b);
-void		ext_pb_nmin_nmax(intarray a, intarray b, int mid);
-int		get_index_closest(intarray x, int val);
-int		get_index_move(int *tab, int size);
-void		get_b_top(intarray b, t_variables *vars);
-void		get_a_top(intarray a, t_variables *vars);
-void		ra_rra(intarray a, t_variables *vars);
-
-int		is_odd(int nb);
+int			is_odd(int nb);
 
 #endif

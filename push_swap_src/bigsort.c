@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bigsort.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 10:46:05 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/08/28 11:58:13 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void		get_b_top(intarray b, t_variables *vars)
+void	get_b_top(t_intarray b, t_variables *vars)
 {
 	if (vars->index_move < (vars->size / 2))
 	{
@@ -14,7 +26,7 @@ void		get_b_top(intarray b, t_variables *vars)
 	}
 }
 
-void		get_a_top(intarray a, t_variables *vars)
+void	get_a_top(t_intarray a, t_variables *vars)
 {
 	if (vars->closest < (vars->size / 2))
 	{
@@ -28,7 +40,7 @@ void		get_a_top(intarray a, t_variables *vars)
 	}
 }
 
-void		ra_rra(intarray a, t_variables *vars)
+void	ra_rra(t_intarray a, t_variables *vars)
 {
 	if (vars->min_index > (vars->size / 2))
 	{
@@ -42,9 +54,9 @@ void		ra_rra(intarray a, t_variables *vars)
 	}
 }
 
-void		bigsort(intarray a, intarray b)
+void	bigsort(t_intarray a, t_intarray b)
 {
-	t_variables vars;
+	t_variables	vars;
 
 	vars.i = -1;
 	pb_nmin_nmax(a, b);
@@ -69,7 +81,7 @@ void		bigsort(intarray a, intarray b)
 	ext_bigsort(a, &vars);
 }
 
-void		ext_bigsort(intarray a, t_variables *vars)
+void	ext_bigsort(t_intarray a, t_variables *vars)
 {
 	vars->size = length_intarray(a);
 	vars->min_index = get_index_min_intarray(a);

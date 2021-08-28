@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/28 10:46:20 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/08/28 12:00:51 by ztaouil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void		sort(intarray a, intarray b)
+void	sort(t_intarray a, t_intarray b)
 {
 	if (length_intarray(a) == 2)
 		sort_2_elem(a, b);
@@ -14,7 +26,7 @@ void		sort(intarray a, intarray b)
 		bigsort(a, b);
 }
 
-void		lock_load(int ac, char **av, intarray a, intarray b)
+void	lock_load(int ac, char **av, t_intarray a, t_intarray b)
 {
 	if (ac == 1)
 		exit (0);
@@ -23,11 +35,14 @@ void		lock_load(int ac, char **av, intarray a, intarray b)
 	if (is_sorted(a) == 1)
 		error_exit(a, b, 0);
 }
-int		main(int ac, char **av)
-{
-	intarray	a = standard_empty_create_intarray();
-	intarray	b = standard_empty_create_intarray();
 
+int	main(int ac, char **av)
+{
+	t_intarray	a;
+	t_intarray	b;
+
+	a = standard_empty_create_intarray();
+	b = standard_empty_create_intarray();
 	lock_load(ac, av, a, b);
 	sort(a, b);
 	destroy_intarray(a);
